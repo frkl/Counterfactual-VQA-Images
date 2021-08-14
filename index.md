@@ -1,4 +1,7 @@
-## Counterfactual VQA Dataset
+
+### Download
+
+[dataset_VQA-counterfactuals.zip](https://www.dropbox.com/s/lhgmr8e69bumyj5/dataset_VQA-counterfactuals.zip?dl=1) (296MB)
 
 ### Introduction
 
@@ -16,7 +19,7 @@ In this dataset there are 4 types of image edits:
 3) Turning the image black-and-white,
 4) Zooming into a part of the original image.
 
-For inpainting we used a modified DeepFillv2 ([Arxiv](http://arxiv.org/abs/1806.03589)) inpainter, available at https://github.com/zzzace2000/generative_inpainting.
+For inpainting we used a modified DeepFillv2 ([Arxiv](http://arxiv.org/abs/1806.03589)) inpainter, available at [https://github.com/zzzace2000/generative_inpainting](https://github.com/zzzace2000/generative_inpainting).
 
 
 
@@ -28,3 +31,21 @@ We provide the GAN edited images and the original COCO images in `./counterfactu
 ### Annotations
 
 We provide the urls to the original coco images, the original VQA question, as well as image editing annotations in `annotations.json`. At the moment we do not have VQA answers on the edited images so they are not useful for evaluating the consistency of VQA models. Nevertheless they may help as visualizations to explain a VQA model's performance in consistency to a human user.
+
+
+### References
+
+If you use our dataset as part of published research, please cite the following paper:
+
+```
+@article{Alipour_2021,
+	doi = {10.22541/au.162464875.59047443/v1},
+	url = {https://doi.org/10.22541%2Fau.162464875.59047443%2Fv1},
+	year = 2021,
+	month = {jun},
+	publisher = {Authorea,
+Inc.},
+	author = {Kamran Alipour and Arijit Ray and Xiao Lin and Michael Cogswell and Jurgen Schulze and Yi Yao and Giedrius Burachas},
+	title = {Improving Users{\textquotesingle} Mental Model with Attention-directed Counterfactual Edits}
+}
+```
