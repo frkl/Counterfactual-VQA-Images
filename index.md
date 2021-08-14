@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+# Counterfactual VQA Dataset
 
-You can use the [editor on GitHub](https://github.com/frkl/Counterfactual-VQA-Images/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+## Introduction
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This dataset provides 484 GAN edited [COCO val2014](https://cocodataset.org/) images for studing the interpretability of [Visual Question Answering](https://visualqa.org/) models. For each image, a human annotator looks at the original image and a natural language question about the image from the [Visual Question Answering](https://visualqa.org/) (VQA) dataset, and edit the image such that consistently answering the question on the original and edited images is challenging. 
 
-### Markdown
+Question: What sport is shown?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Counterfactual | Original
+------------ | -------------
+<img src="./counterfactual/195.png" width="300" height="300" />|<img src="https://vqa_mscoco_images.s3.amazonaws.com/val2014/COCO_val2014_000000124452.jpg" width="300" height="300" />
 
-```markdown
-Syntax highlighted code block
+In this dataset there are 4 types of image edits:
+1) Inpaint a box region,
+2) Inpaint the background except a box foreground,
+3) Turning the image black-and-white,
+4) Zooming into a part of the original image.
 
-# Header 1
-## Header 2
-### Header 3
+For inpainting we used a modified DeepFillv2 ([Arxiv](http://arxiv.org/abs/1806.03589)) inpainter, available at https://github.com/zzzace2000/generative_inpainting.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Images
 
-[Link](url) and ![Image](src)
-```
+We provide the GAN edited images and the original COCO images in `./counterfactual/{id}.png` and `./original/{id}.png`. The mapping between image id in our dataset and coco id is available in annotations.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
+## Annotations
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/frkl/Counterfactual-VQA-Images/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+We provide the urls to the original coco images, the original VQA question, as well as image editing annotations in `annotations.json`. At the moment we do not have VQA answers on the edited images so they are not useful for evaluating the consistency of VQA models. Nevertheless they may help as visualizations to explain a VQA model's performance in consistency to a human user.
