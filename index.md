@@ -1,6 +1,6 @@
-# Counterfactual VQA Dataset
+## Counterfactual VQA Dataset
 
-## Introduction
+### Introduction
 
 This dataset provides 484 GAN edited [COCO val2014](https://cocodataset.org/) images for studing the interpretability of [Visual Question Answering](https://visualqa.org/) models. For each image, a human annotator looks at the original image and a natural language question about the image from the [Visual Question Answering](https://visualqa.org/) (VQA) dataset, and edit the image such that consistently answering the question on the original and edited images is challenging. 
 
@@ -20,11 +20,11 @@ For inpainting we used a modified DeepFillv2 ([Arxiv](http://arxiv.org/abs/1806.
 
 
 
-## Images
+### Images
 
 We provide the GAN edited images and the original COCO images in `./counterfactual/{id}.png` and `./original/{id}.png`. The mapping between image id in our dataset and coco id is available in annotations.
 
 
-## Annotations
+### Annotations
 
 We provide the urls to the original coco images, the original VQA question, as well as image editing annotations in `annotations.json`. At the moment we do not have VQA answers on the edited images so they are not useful for evaluating the consistency of VQA models. Nevertheless they may help as visualizations to explain a VQA model's performance in consistency to a human user.
